@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug with SAM",
+            "type": "go",
+            "request": "attach",
+            "preLaunchTask": "debug-with-sam",
+            "mode": "remote",
+            "remotePath": "",
+            "port": 9999,
+            "host": "127.0.0.1",
+            "program": "${workspaceRoot}/",
+            "env": {},
+            "args": []
+        }
+    ]
+}

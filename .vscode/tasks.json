@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "debug-with-sam",
+            "type": "process",
+            "command": "make",
+            "isBackground": true,
+            "args": [
+                {
+                    "value": "debug-with-sam",
+                    "quoting": "escape"
+                }
+            ],
+            "problemMatcher": {
+                "pattern": [
+                    {
+                        "regexp": "^not\\sok\\s\\d+\\s(.*)$"
+                    },
+                    {
+                        "regexp": "\\s+(.*)$",
+                        "message": 1
+                    },
+                    {
+                        "regexp": "\\s+at\\s(.*):(\\d+):(\\d+)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3
+                    }
+                ],
+                "background": {
+                    "activeOnStart": false,
+                    "beginsPattern": {
+                        "regexp": "sam build*"
+                    },
+                    "endsPattern": {
+                        "regexp": "info layer=debugger launching process with args*"
+                    }
+                }
+            }
+        }
+    ]
+}
