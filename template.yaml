@@ -5,7 +5,7 @@ Resources:
   MySQSQueueFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: ./src
+      CodeUri: ./
       Runtime: go1.x
       Handler: main
       Events:
@@ -14,5 +14,7 @@ Resources:
           Properties:
             Queue: !GetAtt MySqsQueue.Arn
             BatchSize: 10
+    Metadata:
+      BuildMethod: makefile
   MySqsQueue:
     Type: AWS::SQS::Queue
